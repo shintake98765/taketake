@@ -45,6 +45,7 @@ checkstyle {
     toolVersion = '10.9.3'
     ignoreFailures = false
     maxWarnings = 0
+    configFile = '../../tools/analysis/checkstyle.xml' as File
 }
 
 
