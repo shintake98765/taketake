@@ -14,19 +14,20 @@ jobs:
 
     runs-on: ubuntu-22.04
 
-    services:
-      postgres:
-        image: postgres:14.7
-        env:
-          POSTGRES_PASSWORD: ${{ vars.DB_ADMIN_PASS }}
-          POSTGRES_INITDB_ARGS: --encoding=UTF-8 --locale=C
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+#OK
+#    services:
+#      postgres:
+#        image: postgres:14.7
+#        env:
+#          POSTGRES_PASSWORD: ${{ vars.DB_ADMIN_PASS }}
+#          POSTGRES_INITDB_ARGS: --encoding=UTF-8 --locale=C
+#        ports:
+#          - 5432:5432
+#        options: >-
+#          --health-cmd pg_isready
+#          --health-interval 10s
+#          --health-timeout 5s
+#          --health-retries 5
 
     steps:
 
@@ -41,7 +42,7 @@ jobs:
 
       - name: Move files to root
         run: |
-          ls -lahR
+          ls -lahR src
           shopt -s dotglob
           mv src/app/demo1/* .
           mv src/tools/* .
