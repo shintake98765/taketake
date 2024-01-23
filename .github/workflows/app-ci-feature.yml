@@ -54,8 +54,6 @@ jobs:
           rm -rf temp
           ls -lah
           pwd
-          ls -lah tools
-          ls -lah tools/analysis
 
       - name: Setup Java
         uses: actions/setup-java@v3
