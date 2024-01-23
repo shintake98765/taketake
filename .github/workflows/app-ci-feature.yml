@@ -91,7 +91,6 @@ jobs:
 
       - name: Install postgresql-client (psql)
         run: |
-          apt update -y
           apt install -y postgresql-client
           psql --version
 
