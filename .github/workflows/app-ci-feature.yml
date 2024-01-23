@@ -36,6 +36,7 @@ jobs:
         with:
           sparse-checkout: |
             src/app/demo1
+            src/tools
           sparse-checkout-cone-mode: false
 
       - name: Move files to root
@@ -45,6 +46,7 @@ jobs:
           shopt -s dotglob
           mv src temp
           mv temp/app/demo1/* .
+          rm -rf temp
           ls -lah
 
 #      - name: Setup Java
