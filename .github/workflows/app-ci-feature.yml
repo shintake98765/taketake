@@ -79,12 +79,12 @@ jobs:
         with:
           arguments: build -x test
 
-      - name Migrate create db
+      - name: Migrate create db
         uses: gradle/gradle-build-action@v2
         with:
           arguments: migrate1
 
-      - name Migrate create table
+      - name: Migrate create table
         uses: gradle/gradle-build-action@v2
         with:
           arguments: migrate2
