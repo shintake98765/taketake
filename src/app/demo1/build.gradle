@@ -79,6 +79,21 @@ tasks.named('test') {
 
 
 task migrate1(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+    url = 'jdbc:postgresql://localhost:5432/postgres'
+    user = 'postgres'
+    password = 'pass001!'
+    locations = ['filesystem:./src/main/resources/db/migration1']
+}
+
+task migrate2(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+    url = 'jdbc:postgresql://localhost:5432/test'
+    user = 'testuser'
+    password = 'pass001!'
+    locations = ['filesystem:./src/main/resources/db/migration2']
+}
+
+/*
+task migrate1(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
     url = DB_ADMIN_URL
     user = DB_ADMIN_USER
     password = DB_ADMIN_PASS
@@ -91,4 +106,4 @@ task migrate2(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
     password = DB_PASS
     locations = ['filesystem:./src/main/resources/db/migration2']
 }
-
+*/

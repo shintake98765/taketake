@@ -1,3 +1,3 @@
 create role testuser with SUPERUSER;
-alter role testuser with PASSWORD '${DB_PASS}';
+alter role testuser with PASSWORD 'pass001!'
 alter role testuser with LOGIN;
