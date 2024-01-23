@@ -46,7 +46,10 @@ jobs:
           shopt -s dotglob
           mv src temp
           mv temp/app/demo1/* .
+          echo 'aaa'
           mkdir ../tools
+          ls -lah ../
+          echo 'bbb'
           mv temp/tools/* ../tools
           rm -rf temp
           ls -lah
