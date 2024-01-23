@@ -88,3 +88,9 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: migrate2
+
+      - name: Test
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: test
+
