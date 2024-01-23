@@ -6,7 +6,7 @@ on:
       - 'feature/**'
       - 'feature'
     paths:
-      - src/app/demo1
+      - 'src/app/demo1/**'
 
 jobs:
 
