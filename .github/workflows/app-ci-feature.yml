@@ -37,7 +37,7 @@ jobs:
             'src/tools'
 
       - name: Move files to root
-      - run: |
+        run: |
           shopt -s dotglob
           mv src/app/demo1/* .
           mv src/tools/* .
