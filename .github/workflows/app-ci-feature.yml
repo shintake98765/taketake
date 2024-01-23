@@ -42,7 +42,7 @@ jobs:
 
       - name: Move files to root
         run: |
-          ls -lahR src
+          ls -lah
           shopt -s dotglob
           mv src/app/demo1/* .
           mv src/tools/* .
