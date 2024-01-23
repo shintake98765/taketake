@@ -69,10 +69,10 @@ jobs:
       - name: Grradle permission
         run: chmod +x ./gradlew
 
-#      - name: Build
-#        uses: gradle/gradle-build-action@v2
-#        with:
-#          arguments: build -x test
+      - name: Build
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build -x test
 
 #      - name Migrate create db
 #        uses: gradle/gradle-build-action@v2
