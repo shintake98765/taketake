@@ -50,11 +50,11 @@ jobs:
           rm -rf temp
           ls -lah
 
-#      - name: Setup Java
-#        uses: actions/setup-java@v3
-#        with:
-#          java-version: '17'
-#          distribution: 'corretto'
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'corretto'
 
 #      - name: Environment variable
 #        run: |
