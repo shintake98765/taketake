@@ -5,8 +5,8 @@ on:
     branches:
       - 'feature/**'
       - 'feature'
-#    paths:
-#      - src/app/demo1
+    paths:
+      - src/app/demo1
 
 jobs:
 
