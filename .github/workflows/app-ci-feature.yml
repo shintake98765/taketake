@@ -47,11 +47,11 @@ jobs:
           mv src temp
           mv temp/app/demo1/* .
           echo 'aaa'
-          mkdir ../tools
+          mkdir ../../tools
           ls -lah ../
           echo 'bbb'
           ls -lah ../taketake
-          mv temp/tools/* ../tools
+          mv temp/tools/* ../../tools
           rm -rf temp
           ls -lah
           pwd
