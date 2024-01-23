@@ -37,7 +37,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly 'org.postgresql:postgresql'
-	spotbugsSlf4j 'org.slf4j:slf4j-simple:1.7.36'
+//	spotbugsSlf4j 'org.slf4j:slf4j-simple:1.7.36'
 }
 
 
