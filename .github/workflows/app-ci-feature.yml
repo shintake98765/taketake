@@ -43,9 +43,8 @@ jobs:
           ls -lah src
           ls -lah src/app
           shopt -s dotglob
-#          mv src temp
-#          mv temp/app/demo1/* .
-#          mv src/tools/* .
+          mv src temp
+          mv temp/app/demo1/* .
           ls -lah
 
 #      - name: Setup Java
