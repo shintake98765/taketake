@@ -1,0 +1,73 @@
+name: app-ci-feature
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+    paths:
+      - src/app/demo1
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-22.04
+
+    services:
+      postgres:
+        image: postgres:14.7
+        env:
+          POSTGRES_PASSWORD: ${{ vars.DB_ADMIN_PASS }}
+          POSTGRES_INITDB_ARGS: --encoding=UTF-8 --locale=C
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            'src/app/demo1'
+            'src/tools'
+
+      - name: Move files to root
+      - run: |
+          shopt -s dotglob
+          mv src/app/demo1/* .
+          mv src/tools/* .
+          ls -lah
+
+#      - name: Setup Java
+#        uses: actions/setup-java@v3
+#        with:
+#          java-version: '17'
+#          distribution: 'corretto'
+
+#      - name: Environment variable
+#        run: |
+#          echo "ORG_GRADLE_PROJECT_DB_ADMIN_URL=${{ vars.ORG_GRADLE_PROJECT_DB_ADMIN_URL }}" >> $GITHUB_ENV
+#          echo "ORG_GRADLE_PROJECT_DB_ADMIN_USER=${{ vars.ORG_GRADLE_PROJECT_DB_ADMIN_USER }}" >> $GITHUB_ENV
+#          echo "ORG_GRADLE_PROJECT_DB_ADMIN_PASS=${{ vars.ORG_GRADLE_PROJECT_DB_ADMIN_PASS }}" >> $GITHUB_ENV
+#          echo "ORG_GRADLE_PROJECT_DB_URL=${{ vars.ORG_GRADLE_PROJECT_DB_URL }}" >> $GITHUB_ENV
+#          echo "ORG_GRADLE_PROJECT_DB_USER=${{ vars.ORG_GRADLE_PROJECT_DB_USER }}" >> $GITHUB_ENV
+#          echo "ORG_GRADLE_PROJECT_DB_PASS=${{ vars.ORG_GRADLE_PROJECT_DB_PASS }}" >> $GITHUB_ENV
+#          echo "FLYWAY_PLACEHOLDERS_DB_PASS=${{ vars.FLYWAY_PLACEHOLDERS_DB_PASS }}" >> $GITHUB_ENV
+
+#      - name: Grradle permission
+#        run: chmod +x ./src/app/demo1/gradlew
+
+#      - name: Build
+#        uses: gradle/gradle-build-action@v2
+#        with:
+#          arguments: build -x test
+
+#      - name Migrate create db
+#        uses: gradle/gradle-build-action@v2
+#        with:
+#          arguments: build -x test
