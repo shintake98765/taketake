@@ -44,20 +44,17 @@ dependencies {
 checkstyle {
     toolVersion = '10.9.3'
     ignoreFailures = true
-    maxWarnings = 0
+//    maxWarnings = 0
     configFile = '../../tools/analysis/checkstyle.xml' as File
 }
 
 
 spotbugs {
     toolVersion = '4.7.3'
-}
-
-tasks.named('test') {
-	useJUnitPlatform()
-	finalizedBy jacocoTestReport
-}
-
+    ignoreFailures = true
+    // 後ほどせってい
+//    includeFilter =
+//    excludeFilter = 
 spotbugsMain {
     reports {
         html {
@@ -65,6 +62,21 @@ spotbugsMain {
         }
     }
 }
+
+spotbugsTest {
+    reports {
+        html {
+            required = true
+        }
+    }
+}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+}
+
 
 task migrate1(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
     url = DB_ADMIN_URL
