@@ -67,7 +67,7 @@ jobs:
           echo "FLYWAY_PLACEHOLDERS_DB_PASS=${{ vars.FLYWAY_PLACEHOLDERS_DB_PASS }}" >> $GITHUB_ENV
 
       - name: Grradle permission
-        run: chmod +x ./src/app/demo1/gradlew
+        run: chmod +x ./gradlew
 
 #      - name: Build
 #        uses: gradle/gradle-build-action@v2
