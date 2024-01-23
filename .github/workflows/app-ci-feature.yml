@@ -89,6 +89,18 @@ jobs:
         with:
           arguments: migrate2
 
+      - name: Install postgresql-client (psql)
+        run: |
+          apt update -y
+          apt install -y postgresql-client
+          psql --version
+
+      - name: Check DB connection
+        run: |
+          psql "postgresql://postgres:pass001!@postgres:5432" <<EOF
+            SELECT * FROM test;
+          EOF
+
       - name: Test
         uses: gradle/gradle-build-action@v2
         with:
