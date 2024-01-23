@@ -50,6 +50,7 @@ jobs:
           mkdir ../tools
           ls -lah ../
           echo 'bbb'
+          ls -lah ../taketake
           mv temp/tools/* ../tools
           rm -rf temp
           ls -lah
