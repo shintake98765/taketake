@@ -94,3 +94,15 @@ jobs:
         with:
           arguments: test
 
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: report
+          path: |
+            build/reports/checkstyle
+            build/reports/spotbugs
+            build/reports/jacoco
+            build/reports/tests/test
+            build/test-results/test/*xml
+
