@@ -54,7 +54,7 @@ spotbugs {
     ignoreFailures = true
     // 後ほどせってい
 //    includeFilter =
-//    excludeFilter = 
+    excludeFilter = '../../tools/analysis/spotbugs-exclude.xml' as File
 spotbugsMain {
     reports {
         html {

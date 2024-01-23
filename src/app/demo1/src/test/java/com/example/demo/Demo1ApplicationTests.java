@@ -29,7 +29,7 @@ class Demo1ApplicationTests {
 		demoDto.setId(100);
 		demoDto.setName("taro");
 		
-		this.mockMvc.perform(MockMvcRequestBuilders.get("hello1"))
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/demo"))
 		.andDo(MockMvcResultHandlers.print())
 		.andExpect(status().isOk());
 //		.andExpect(content().json(objectMapper.writeValueAsString(demoDto)));
