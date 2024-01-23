@@ -36,8 +36,6 @@ jobs:
         with:
           sparse-checkout: |
             src/app/demo1
-#            'src/app/demo1'
-#            'src/tools'
           sparse-checkout-cone-mode: false
 
       - name: Move files to root
