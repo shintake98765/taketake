@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'feature/**'
-    paths:
-      - src/app/demo1
+#    paths:
+#      - src/app/demo1
 
 jobs:
 
