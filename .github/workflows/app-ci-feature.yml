@@ -3,7 +3,8 @@ name: app-ci-feature
 on:
   push:
     branches:
-      - 'feature/**'
+#      - 'feature/**'
+      - 'feature'
 #    paths:
 #      - src/app/demo1
 
