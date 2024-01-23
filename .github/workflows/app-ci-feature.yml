@@ -46,7 +46,7 @@ jobs:
           shopt -s dotglob
           mv src temp
           mv temp/app/demo1/* .
-          mv temp/tools/* .
+          mv temp/tools/* tools
           rm -rf temp
           ls -lah
 
