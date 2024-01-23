@@ -30,7 +30,7 @@ jobs:
           ls -lah src/app
           shopt -s dotglob
           mv src temp
-          mv temp/app/demo1/* .
+          mv temp/app/demo2/* .
           echo 'aaa'
           mkdir ../../tools
           ls -lah ../
