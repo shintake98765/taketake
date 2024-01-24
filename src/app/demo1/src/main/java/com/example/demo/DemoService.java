@@ -16,7 +16,7 @@ public class DemoService {
 	public DemoDto updateData() {
 		DemoDto demoDto = new DemoDto();
 		
-		jdbcTemplate.queryForList("SELECT * FROM USER_TBL");
+		jdbcTemplate.queryForList("SELECT * FROM USER_TBL2");
 		
 		return demoDto;
 	}
