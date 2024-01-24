@@ -24,3 +24,14 @@ services:
       export
       java -jar /app1/test1.jar
 
+  newman:
+    build:
+      context: .
+      dockerfile: Dockerfile-newman
+    container_name: newman
+    tty: true
+    volumes:
+      - ./resource/newman/shell:/newman/shell
+      - ./resource/newman/logs:/newman/logs
+    command: tail -f /dev/null
+

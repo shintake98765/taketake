@@ -1,0 +1,4 @@
+FROM eclipse-temurin:17
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
+    && apt install -y nodejs \
+    && npm install -g newman

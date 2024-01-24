@@ -69,11 +69,16 @@ jobs:
         run: |
           cp build/libs/test1.jar ../../tools/docker/resource/app1
           cd ../../tools/docker
-          docker compose up -d
+          docker compose -f docker-compose.yaml up -d
 
-      - name: Sleep
+#      - name: Sleep
+#        run: |
+#          sleep 60
+
+      - name: Wait
         run: |
-          sleep 60
+          dockerize -wait tcp://localhost:8080 -timeout 60s
+          dockerize -wait tcp://localhost:5432 -timeout 60s
 
       - name: Migrate create db
         uses: gradle/gradle-build-action@v2
@@ -101,3 +106,16 @@ jobs:
             build/reports/jacoco
             build/reports/tests/test
             build/test-results/test/*xml
+
+      - name: Newman
+        run: |
+          cd ../../tools/docker/resource/newman/shell
+          ./All.sh
+
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: newmanreport
+          path: |
+            ../../tools/docker/resource/newman/logs/
