@@ -1,0 +1,28 @@
+version: '3.6'
+services:
+
+  db:
+    image: postgres:14.7
+    container_name: db
+    environment:
+      POSTGRES_PASSWORD: ${ORG_GRADLE_PROJECT_DB_ADMIN_PASS}
+      POSTGRES_INITDB_ARGS: --encoding=UTF-8 --locale=C
+    ports:
+      - "5432:5432"
+    volumes:
+      -dbvolume:/var/lib/postgresql/data
+
+  ap:
+    image: eclipse-temurin:17
+    container_name: ap
+    environment:
+      TZ: Asia/Tokyo
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./resource/app1:app1
+    tty: true
+    command: java -jar /app1/test1.jar
+
+volumes:
+  dbvolume:
