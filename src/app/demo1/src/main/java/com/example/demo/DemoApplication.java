@@ -1,0 +1,24 @@
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+//@RestController
+public class DemoApplication {
+    public static void main(String[] args) {
+      SpringApplication.run(DemoApplication.class, args);
+    }
+    /*
+    @GetMapping("/hello11")
+    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+      return String.format("Hello %s!", name);
+    }
+    private final JdbcTemplate jdbcTemplate;
+    @GetMapping("/hello1")
+    public DemoDto hello1() {
+    	DemoDto demoDto = new DemoDto();
+    	jdbcTemplate
+      return demoDto;
+    }
+    */
+}

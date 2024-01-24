@@ -1,0 +1,43 @@
+name: app2-ci-feature
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'feature'
+    paths:
+      - 'src/app/demo2/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-22.04
+
+    steps:
+
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            src/app/demo2
+            src/tools
+          sparse-checkout-cone-mode: false
+
+      - name: Move files to root
+        run: |
+          ls -lah src
+          ls -lah src/app
+          shopt -s dotglob
+          mv src temp
+          mv temp/app/demo2/* .
+          echo 'aaa'
+          mkdir ../../tools
+          ls -lah ../
+          echo 'bbb'
+          ls -lah ../taketake
+          mv temp/tools/* ../../tools
+          rm -rf temp
+          ls -lah
+          pwd
+

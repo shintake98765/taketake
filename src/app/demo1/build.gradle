@@ -1,0 +1,108 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.2'
+	id 'io.spring.dependency-management' version '1.1.4'
+	id 'checkstyle'
+	id 'com.github.spotbugs' version '5.0.13'
+	id 'jacoco'
+	id 'org.flywaydb.flyway' version '9.18.0'
+}
+
+group = 'com.example'
+version = '1.0'
+
+java {
+	sourceCompatibility = '17'
+}
+
+bootJar {
+    archiveFileName = 'test1.jar'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	runtimeOnly 'org.postgresql:postgresql'
+//	spotbugsSlf4j 'org.slf4j:slf4j-simple:1.7.36'
+}
+
+
+checkstyle {
+    toolVersion = '10.9.3'
+    ignoreFailures = true
+//    maxWarnings = 0
+    configFile = '../../tools/analysis/checkstyle.xml' as File
+}
+
+
+spotbugs {
+    toolVersion = '4.7.3'
+    ignoreFailures = true
+    // 後ほどせってい
+//    includeFilter =
+    excludeFilter = '../../tools/analysis/spotbugs-exclude.xml' as File
+spotbugsMain {
+    reports {
+        html {
+            required = true
+        }
+    }
+}
+
+spotbugsTest {
+    reports {
+        html {
+            required = true
+        }
+    }
+}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+}
+
+/*
+task migrate1(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+    url = 'jdbc:postgresql://localhost:5432/postgres'
+    user = 'postgres'
+    password = 'pass001!'
+    locations = ['filesystem:./src/main/resources/db/migration1']
+}
+
+task migrate2(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+    url = 'jdbc:postgresql://localhost:5432/test'
+    user = 'testuser'
+    password = 'pass001!'
+    locations = ['filesystem:./src/main/resources/db/migration2']
+}
+*/
+
+task migrate1(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+    url = DB_ADMIN_URL
+    user = DB_ADMIN_USER
+    password = DB_ADMIN_PASS
+    locations = ['filesystem:./src/main/resources/db/migration1']
+}
+
+task migrate2(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+    url = DB_URL
+    user = DB_USER
+    password = DB_PASS
+    locations = ['filesystem:./src/main/resources/db/migration2']
+}
