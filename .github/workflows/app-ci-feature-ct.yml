@@ -41,3 +41,27 @@ jobs:
           ls -lah
           pwd
 
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+
+      - name: Environment variable
+        run: |
+          echo "ORG_GRADLE_PROJECT_DB_ADMIN_URL=${{ vars.ORG_GRADLE_PROJECT_DB_ADMIN_URL }}" >> $GITHUB_ENV
+          echo "ORG_GRADLE_PROJECT_DB_ADMIN_USER=${{ vars.ORG_GRADLE_PROJECT_DB_ADMIN_USER }}" >> $GITHUB_ENV
+          echo "ORG_GRADLE_PROJECT_DB_ADMIN_PASS=${{ vars.ORG_GRADLE_PROJECT_DB_ADMIN_PASS }}" >> $GITHUB_ENV
+          echo "ORG_GRADLE_PROJECT_DB_URL=${{ vars.ORG_GRADLE_PROJECT_DB_URL }}" >> $GITHUB_ENV
+          echo "ORG_GRADLE_PROJECT_DB_USER=${{ vars.ORG_GRADLE_PROJECT_DB_USER }}" >> $GITHUB_ENV
+          echo "ORG_GRADLE_PROJECT_DB_PASS=${{ vars.ORG_GRADLE_PROJECT_DB_PASS }}" >> $GITHUB_ENV
+          echo "FLYWAY_PLACEHOLDERS_DB_PASS=${{ vars.FLYWAY_PLACEHOLDERS_DB_PASS }}" >> $GITHUB_ENV
+
+      - name: Grradle permission
+        run: chmod +x ./gradlew
+
+      - name: Build
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build -x test
+
