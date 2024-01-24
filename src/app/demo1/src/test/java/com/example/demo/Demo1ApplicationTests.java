@@ -25,7 +25,7 @@ class Demo1ApplicationTests {
 		
 		ObjectMapper objectMapper = new ObjectMapper();
 		
-		String a = "h";
+		String a = "i";
 		
 		DemoDto demoDto = new DemoDto();
 		demoDto.setId(100);
