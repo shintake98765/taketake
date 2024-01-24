@@ -111,7 +111,7 @@ jobs:
       - name: Newman
         run: |
           cd ../../tools/docker/resource/newman/shell
-          chmod +x ./All.sh
+          chmod +x ./*.sh
           ./All.sh
 
       - name: Newman log copy
