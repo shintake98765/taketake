@@ -67,6 +67,10 @@ jobs:
 
       - name: Test
         run: |
+          ls -lah ../../tools
+          ls -lah ../../tools/docker
+          ls -lah ../../tools/docker/resource
+          ls -lah ../../tools/docker/resource/app1
           cp build/libs/test1.jar ../../tools/docker/resource/app1
           cd ../../tools/docker
           docker compose up -d
