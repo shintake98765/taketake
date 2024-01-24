@@ -1,2 +1,2 @@
 #!/bin/bash
-docker exec -i digital-auth-newman /newman/shell/001.sh
+docker exec -i newman /newman/shell/001.sh
