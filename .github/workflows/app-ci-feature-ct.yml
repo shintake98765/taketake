@@ -80,3 +80,24 @@ jobs:
         with:
           arguments: migrate1
 
+      - name: Migrate create table
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: migrate2
+
+      - name: Test
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: test
+
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: report
+          path: |
+            build/reports/checkstyle
+            build/reports/spotbugs
+            build/reports/jacoco
+            build/reports/tests/test
+            build/test-results/test/*xml

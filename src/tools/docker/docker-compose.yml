@@ -20,5 +20,7 @@ services:
     volumes:
       - ./resource/app1:/app1
     tty: true
-    command: java -jar /app1/test1.jar
+    command: >
+      export
+      java -jar /app1/test1.jar
 
