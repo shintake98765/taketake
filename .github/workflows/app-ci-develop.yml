@@ -26,3 +26,19 @@ jobs:
             src/tools
           sparse-checkout-cone-mode: false
 
+      - name: Move files to root
+        run: |
+          ls -lah src
+          ls -lah src/app
+          shopt -s dotglob
+          mv src temp
+          mv temp/app/demo1/* .
+          echo 'aaa'
+          mkdir ../../tools
+          ls -lah ../
+          echo 'bbb'
+          ls -lah ../taketake
+          mv temp/tools/* ../../tools
+          rm -rf temp
+          ls -lah
+          pwd
