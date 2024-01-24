@@ -71,14 +71,14 @@ jobs:
           cd ../../tools/docker
           docker compose -f docker-compose.yml up -d
 
-#      - name: Sleep
-#        run: |
-#          sleep 60
-
-      - name: Wait
+      - name: Sleep
         run: |
-          dockerize -wait tcp://localhost:8080 -timeout 60s
-          dockerize -wait tcp://localhost:5432 -timeout 60s
+          sleep 60
+
+#      - name: Wait
+#        run: |
+#          dockerize -wait tcp://localhost:8080 -timeout 60s
+#          dockerize -wait tcp://localhost:5432 -timeout 60s
 
       - name: Migrate create db
         uses: gradle/gradle-build-action@v2
