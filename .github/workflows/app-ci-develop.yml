@@ -6,7 +6,7 @@ on:
       - 'develop/**'
       - 'develop'
     paths:
-      - src/app/demo1
+      - 'src/app/demo1/**'
 
 jobs:
 
