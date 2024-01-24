@@ -70,3 +70,13 @@ jobs:
           cp build/libs/test1.jar ../../tools/docker/resource/app1
           cd ../../tools/docker
           docker compose up -d
+
+      - name: Sleep
+        run: |
+          sleep 60
+
+      - name: Migrate create db
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: migrate1
+
