@@ -113,10 +113,10 @@ jobs:
           ./All.sh
 
       - name: Upload
+        working-directory: ../../tools/docker/resource/newman
         uses: actions/upload-artifact@v3
         if: always()
         with:
           name: newmanreport
           path: |
             logs
-        working-directory: ../../tools/docker/resource/newman
