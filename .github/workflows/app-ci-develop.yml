@@ -5,8 +5,8 @@ on:
     branches:
       - 'develop/**'
       - 'develop'
-#    paths:
-#      - src/app/demo1
+    paths:
+      - src/app/demo1
 
 jobs:
 
