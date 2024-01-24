@@ -1,7 +1,7 @@
 name: app-ci-develop
 
 on:
-  push:
+  pull_request:
     branches:
       - 'develop/**'
       - 'develop'
