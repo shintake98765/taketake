@@ -65,3 +65,8 @@ jobs:
         with:
           arguments: build -x test
 
+      - name: Test
+        run: |
+          cp build/libs/test1.jar ../../tools/docker/resource/app1
+          cd ../../tools/docker
+          docker compose up -d
