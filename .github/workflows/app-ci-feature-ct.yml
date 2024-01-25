@@ -87,8 +87,6 @@ jobs:
       - name: Docker logs
         run: |
           docker logs ap
-          sleep 5
-          docker logs ap
 
       - name: Migrate create db
         uses: gradle/gradle-build-action@v2
@@ -122,6 +120,10 @@ jobs:
           cd ../../tools/docker/resource/newman/shell
           chmod +x ./*.sh
           ./All.sh
+
+      - name: Docker logs
+        run: |
+          docker logs newman
 
       - name: Newman log copy
         run: |
