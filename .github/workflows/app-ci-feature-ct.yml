@@ -68,7 +68,7 @@ jobs:
 
       - name: Docker compose
         run: |
-          cp build/libs/test1.jar ../../tools/docker/resource/app1
+#          cp build/libs/test1.jar ../../tools/docker/resource/app1
           cd ../../tools/docker
           docker compose -f docker-compose.yml up -d
 
