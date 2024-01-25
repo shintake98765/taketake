@@ -26,9 +26,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "ap:8080/demo",
+					"raw": "localhost:8080/demo",
 					"host": [
-						"ap"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
