@@ -12,9 +12,9 @@ services:
     healthcheck:
       test: ["CMD", "pg_isready"]
 #      test: ["CMD-SHELL", "pg_isready"]
-      interval: 10s
+      interval: 5s
       timeout: 5s
-      retries: 5
+      retries: 10
 
   ap:
     image: eclipse-temurin:17
@@ -30,9 +30,10 @@ services:
       export
       java -jar /app1/test1.jar
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
-#      test: "curl -f http://localhost:8080 || exit 1"
+#      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      test: "curl -f http://localhost:8080 || exit 1"
       interval: 5s
+      timeout: 5s
       retries: 10
 
   newman:
