@@ -139,6 +139,11 @@ jobs:
         run: |
           cp -r ../../tools/docker/resource/newman/logs/ newmanlog/
 
+      - name: Docker logs
+        if: always()
+        run: |
+          docker logs ap
+
       - name: Upload newman
         uses: actions/upload-artifact@v3
         if: always()
