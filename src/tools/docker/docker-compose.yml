@@ -29,7 +29,8 @@ services:
 #    command: >
 #      export
 #      java -jar /app1/test1.jar
-    command: java -jar /app1/test1.jar
+#    command: java -jar /app1/test1.jar
+    entrypoint: java -jar /app1/test1.jar
     healthcheck:
 #      test: ["CMD", "curl", "-f", "http://localhost:8080"]
 #      test: "curl -s http://localhost:8080/demo | grep 404 || exit 1"
@@ -37,7 +38,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-#      start_period: 40s
+      start_period: 40s
 
   newman:
     build:
