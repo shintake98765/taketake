@@ -62,7 +62,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: build -x test
 
@@ -89,22 +89,22 @@ jobs:
           docker logs ap
 
       - name: Migrate create db
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: migrate1
 
       - name: Migrate create table
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: migrate2
 
       - name: Test
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: test
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: report
@@ -145,7 +145,7 @@ jobs:
           docker logs ap
 
       - name: Upload newman
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: newmanreport
