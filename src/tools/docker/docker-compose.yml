@@ -21,6 +21,9 @@ services:
     container_name: ap
     environment:
       TZ: Asia/Tokyo
+      ORG_GRADLE_PROJECT_DB_URL=${ORG_GRADLE_PROJECT_DB_URL}
+      ORG_GRADLE_PROJECT_DB_USER=${ORG_GRADLE_PROJECT_DB_USER}
+      ORG_GRADLE_PROJECT_DB_PASS=${ORG_GRADLE_PROJECT_DB_PASS}
     ports:
       - "8080:8080"
     volumes:
