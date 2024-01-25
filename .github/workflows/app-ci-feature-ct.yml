@@ -72,9 +72,9 @@ jobs:
           cd ../../tools/docker
           docker compose -f docker-compose.yml up -d
 
-      - name: Sleep
-        run: |
-          sleep 60
+#      - name: Sleep
+#        run: |
+#          sleep 60
 
 #      - name: Wait
 #        run: |
