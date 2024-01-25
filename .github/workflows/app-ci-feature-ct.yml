@@ -84,7 +84,7 @@ jobs:
       - name: Docker logs
         run: |
           docker logs ap
-          sleep(5)
+          sleep 5
           docker logs ap
 
       - name: Migrate create db
