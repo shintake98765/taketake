@@ -117,13 +117,13 @@ jobs:
 
       - name: Newman
         run: |
-          cd ../../tools/docker/resource/newman/shell
-          chmod +x ./*.sh
-          ./001.sh
-#        run: |
 #          cd ../../tools/docker/resource/newman/shell
 #          chmod +x ./*.sh
-#          ./All.sh
+#          ./001.sh
+        run: |
+          cd ../../tools/docker/resource/newman/shell
+          chmod +x ./*.sh
+          ./All.sh
 
       - name: newman logs
         run: |
