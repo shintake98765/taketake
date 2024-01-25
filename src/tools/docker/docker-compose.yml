@@ -10,8 +10,9 @@ services:
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD", "pg_isready"]
+#      test: ["CMD", "pg_isready"]
 #      test: ["CMD-SHELL", "pg_isready"]
+      test: "pg_isready"
       interval: 5s
       timeout: 5s
       retries: 10
@@ -29,18 +30,18 @@ services:
     volumes:
       - ./resource/app1:/app1
     tty: true
-#    command: >
-#      export
-#      java -jar /app1/test1.jar
-#    command: java -jar /app1/test1.jar
-    entrypoint: java -jar /app1/test1.jar
-#    healthcheck:
+    command: >
+      export
+      java -jar /app1/test1.jar
+    command: java -jar /app1/test1.jar
+#    entrypoint: java -jar /app1/test1.jar
+    healthcheck:
 #      test: ["CMD", "curl", "-f", "http://localhost:8080"]
 #      test: "curl -s http://localhost:8080/demo | grep 404 || exit 1"
-#      test: "curl -s localhost:8080 | grep 404 || exit 1"
-#      interval: 5s
-#      timeout: 5s
-#      retries: 10
+      test: "curl -s localhost:8080 | grep 404 || exit 1"
+      interval: 5s
+      timeout: 5s
+      retries: 10
 #      start_period: 40s
 #    depends_on:
 #      db:
@@ -59,6 +60,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-#      ap:
-#        condition: service_healthy
+      ap:
+        condition: service_healthy
 
