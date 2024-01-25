@@ -31,7 +31,7 @@ services:
       java -jar /app1/test1.jar
     healthcheck:
 #      test: ["CMD", "curl", "-f", "http://localhost:8080"]
-      test: "curl -f http://localhost:8080 || exit 1"
+      test: "curl -f http://localhost:8080/demo || exit 1"
       interval: 5s
       timeout: 5s
       retries: 10
