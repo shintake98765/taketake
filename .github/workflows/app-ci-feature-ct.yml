@@ -135,6 +135,7 @@ jobs:
           docker logs newman
 
       - name: Newman log copy
+        if: always()
         run: |
           cp -r ../../tools/docker/resource/newman/logs/ newmanlog/
 
