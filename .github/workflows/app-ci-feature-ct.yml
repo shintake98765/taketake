@@ -81,6 +81,12 @@ jobs:
 #          dockerize -wait tcp://localhost:8080 -timeout 60s
 #          dockerize -wait tcp://localhost:5432 -timeout 60s
 
+      - name: Docker logs
+        run: |
+          docker logs ap
+          sleep(5)
+          docker logs ap
+
       - name: Migrate create db
         uses: gradle/gradle-build-action@v2
         with:
