@@ -119,7 +119,16 @@ jobs:
         run: |
           cd ../../tools/docker/resource/newman/shell
           chmod +x ./*.sh
-          ./All.sh
+          ./001.sh
+#        run: |
+#          cd ../../tools/docker/resource/newman/shell
+#          chmod +x ./*.sh
+#          ./All.sh
+
+      - name: newman logs
+        run: |
+          ls -lah ../../tools/docker/resource/newman/
+          ls -lah ../../tools/docker/resource/newman/logs
 
       - name: Docker logs
         run: |
