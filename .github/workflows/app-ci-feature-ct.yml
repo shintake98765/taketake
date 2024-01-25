@@ -116,7 +116,7 @@ jobs:
             build/test-results/test/*xml
 
       - name: Newman
-        run: |
+#        run: |
 #          cd ../../tools/docker/resource/newman/shell
 #          chmod +x ./*.sh
 #          ./001.sh
